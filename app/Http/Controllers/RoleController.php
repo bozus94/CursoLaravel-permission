@@ -2,19 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
+use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class RoleController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('can:products.index')->only('index');
-        $this->middleware('can:products.show')->only('show');
-        $this->middleware('can:products.create')->only(['create', 'store']);
-        $this->middleware('can:products.edit')->only(['edit', 'update']);
-    }
     /**
      * Display a listing of the resource.
      *
@@ -22,9 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::orderBy('id', 'DESC')->get();
-        
-        return dd($products);
+        //
     }
 
     /**
@@ -51,10 +41,10 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param  \App\spatie\permission\models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Role $role)
     {
         //
     }
@@ -62,10 +52,10 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param  \App\spatie\permission\models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(Role $role)
     {
         //
     }
@@ -74,10 +64,10 @@ class ProductController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Product  $product
+     * @param  \App\spatie\permission\models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, Role $role)
     {
         //
     }
@@ -85,10 +75,10 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Product  $product
+     * @param  \App\spatie\permission\models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Role $role)
     {
         //
     }

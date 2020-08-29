@@ -43,27 +43,27 @@ class PermissionsSeeder extends Seeder
         ];
         $AdminProducts = [
             Permission::create([
-                'name' => 'productos.index',
+                'name' => 'products.index',
                 'description' => 'Permite listar los productos del sistema',
                 'guard_name' => 'web',
             ]),
             Permission::create([
-                'name' => 'productos.show',
+                'name' => 'products.show',
                 'description' => 'Permite visualizar en detalle los productos del sistema',
                 'guard_name' => 'web',
             ]),
             Permission::create([
-                'name' => 'productos.create',
+                'name' => 'products.create',
                 'description' => 'Permite crear productos del sistema',
                 'guard_name' => 'web',
             ]),
             Permission::create([
-                'name' => 'productos.edit',
+                'name' => 'products.edit',
                 'description' => 'Permite editar los productos del sistema',
                 'guard_name' => 'web',
             ]),
             Permission::create([
-                'name' => 'productos.destroy',
+                'name' => 'products.destroy',
                 'description' => 'Permite elimar los productos del sistema',
                 'guard_name' => 'web',
             ]),
