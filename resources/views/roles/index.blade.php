@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Lista de Productos')
+@section('title', 'Lista de Roles')
 @section('content')
 
 
@@ -7,7 +7,7 @@
     <div class="col-md-8">
         <div class="card">
             <div class="card-header"> 
-                <h4 class="mb-0">Editar Producto</h4>
+                <h4 class="mb-0">Editar Role</h4>
             </div>
             <div class="card-body">
                 @if (session('status'))
@@ -19,32 +19,32 @@
                     <thead>
                         <tr>
                             <th width="20px">#</th>
-                            <th>First</th>
+                            <th>Nombre</th>
                             <th colspan="3" width="90px" class="text-center">
-                                @can('products.create')
-                                    <a class="text-primary" href="{{ route('products.create') }}">{{ __('Crear') }}</a>
+                                @can('roles.create')
+                                    <a class="text-primary" href="{{ route('roles.create') }}">{{ __('Crear') }}</a>
                                 @endcan
                             </th>
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($products as $product)
+                        @forelse ($roles as $role)
                             <tr>
-                                <td>{{ $product->id }}</td>
-                                <td>{{ $product->name }}</td>
+                                <td>{{ $role->id }}</td>
+                                <td>{{ $role->name }}</td>
                                 <td width="30px">
-                                    @can('products.show')
-                                        <a class="text-secondary" href="{{ route('products.show', $product->id) }}">{{ __('Ver') }}</a>
+                                    @can('roles.show')
+                                        <a class="text-secondary" href="{{ route('roles.show', $role->id) }}">{{ __('Ver') }}</a>
                                     @endcan
                                 </td>
                                 <td width="30px">
-                                    @can('products.edit')
-                                        <a class="text-body" href="{{ route('products.edit', $product->id) }}">{{ __('Editar') }}</a>
+                                    @can('roles.edit')
+                                        <a class="text-body" href="{{ route('roles.edit', $role->id) }}">{{ __('Editar') }}</a>
                                     @endcan
                                 </td>
                                 <td width="30px">
-                                    @can('products.destroy')
-                                        {!! Form::open(['route' => ['products.destroy', $product->id], 'method' => 'DELETE         ']) !!}
+                                    @can('roles.destroy')
+                                        {!! Form::open(['route' => ['roles.destroy', $role->id], 'method' => 'DELETE']) !!}
                                             {!! Form::submit('Eliminar', ['class'=> 'text-danger btn btn-link p-0']) !!}
                                         {!! Form::close() !!}
                                     @endcan
@@ -53,14 +53,14 @@
                         @empty
                             <tr>
                                 <th colspan="4">
-                                    <span class="h3">No hay productos</span>
+                                    <span class="h3">No hay Roles</span>
                                 </th>
                             </tr>
                         @endforelse
                     </tbody>
                 </table>
                <div class="text-center">
-                    {{ $products->links('vendor.pagination.simple-tailwind') }}
+                    {{ $roles->links('vendor.pagination.simple-tailwind') }}
                </div>
             </div>
         </div>
