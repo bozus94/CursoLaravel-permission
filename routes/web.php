@@ -14,15 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::redirect('/','/home');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
 
 Route::group(['middleware' => ['auth']], function () {
+    Route::get('/home', 'DashboardController@index')->name('home');
     /* USERS */
     Route::get('users/', 'UserController@index')->name('users.index')
         ->middleware('can:users.index');
